@@ -10,13 +10,14 @@ public class ReflectionTest {
 
         Class<Object> objectClass = (Class<Object>) obj.getClass();
         Field[] fields = objectClass.getDeclaredFields();
-        int size = fields.length;
+     
         String result = "";
-        result = toJsonString(fields, size, obj);
+        result = toJsonString(fields, obj);
         return result;
     }
 
-    private static String toJsonString(Field[] fields, int size, Object object) throws IllegalAccessException {
+    private static String toJsonString(Field[] fields, Object object) throws IllegalAccessException {
+		int size = fields.length;
         StringBuilder builder = new StringBuilder();
         builder.append("{").append("\n");
         for (Field field : fields) {
